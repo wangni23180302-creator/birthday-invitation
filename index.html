@@ -10,25 +10,26 @@
   <style>
     :root{--wine:#9d1737;--wine-dark:#681026;--gold:#efb747;--ink:#38131d;--cream:#fffaf0}
     *{box-sizing:border-box}html,body{margin:0;min-height:100%;font-family:"PingFang SC","Microsoft YaHei",system-ui,sans-serif;color:var(--ink)}
-    body{min-height:100vh;background:#fffaf0;overflow:hidden}.scene{position:relative;min-height:100vh;display:grid;place-items:center;background-image:linear-gradient(90deg,rgba(255,250,240,.02),rgba(255,250,240,.1)),url("xiaoni-xiaochuan-separated.png");background-repeat:no-repeat;background-position:center;background-size:cover}
-    .panel{position:relative;z-index:2;width:min(470px,42vw);padding:32px 30px 28px;text-align:center;background:rgba(255,253,248,.88);border:1px solid rgba(157,23,55,.16);border-radius:28px;box-shadow:0 22px 70px rgba(91,23,42,.18);backdrop-filter:blur(10px)}
+    body{min-height:100vh;background:linear-gradient(160deg,#fffaf0,#f9dce3);overflow:auto}.scene{position:relative;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:24px 18px 34px}.characters{display:block;width:min(920px,92vw);height:auto;max-height:58vh;object-fit:contain;border-radius:26px;box-shadow:0 20px 60px rgba(91,23,42,.13)}
+    .panel{position:relative;z-index:2;width:min(500px,92vw);margin-top:-46px;padding:32px 30px 28px;text-align:center;background:rgba(255,253,248,.96);border:1px solid rgba(157,23,55,.16);border-radius:28px;box-shadow:0 22px 70px rgba(91,23,42,.18);backdrop-filter:blur(10px)}
     .date{display:inline-flex;align-items:center;gap:8px;color:var(--wine);font-size:.86rem;font-weight:800;letter-spacing:.12em}.date:before,.date:after{content:"";width:24px;height:1px;background:var(--gold)}
     h1{margin:15px 0 10px;font-family:Georgia,"Songti SC",serif;font-size:clamp(2rem,4vw,3.3rem);line-height:1.12;color:var(--wine)}.copy{margin:0 auto 24px;line-height:1.75;font-size:1rem}.copy strong{color:var(--wine)}.question{font-weight:900;font-size:1.13rem;margin:0 0 16px}
     .actions{position:relative;height:68px;display:flex;justify-content:center;align-items:flex-start;gap:14px}button{border:0;border-radius:14px;padding:14px 24px;font:inherit;font-weight:850;cursor:pointer;touch-action:manipulation;transition:transform .16s,box-shadow .16s,left .18s,top .18s}
     #yes{min-width:148px;background:var(--wine);color:white;box-shadow:0 7px 0 var(--wine-dark),0 12px 25px rgba(157,23,55,.25)}#yes:hover{transform:translateY(-2px)}#yes:active{transform:translateY(5px);box-shadow:0 2px 0 var(--wine-dark)}#no{min-width:110px;background:#eee7e1;color:#735c63;box-shadow:0 5px 0 #d6c9c5}
     .plea{min-height:26px;margin:2px 0 0;color:var(--wine);font-weight:850;opacity:0;transform:translateY(5px);transition:.25s}.plea.show{opacity:1;transform:none}.planner,.success{display:none}.planner h2,.success h2{font-family:Georgia,"Songti SC",serif;color:var(--wine);font-size:2.35rem;margin:5px 0 18px}.group{border:0;padding:0;margin:0 0 18px}.group legend{font-weight:850;margin-bottom:9px}.options{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}.option{position:relative}.option input{position:absolute;opacity:0;pointer-events:none}.option span{display:block;padding:11px 8px;border:1px solid #e3c7ce;border-radius:12px;background:#fff;cursor:pointer;font-weight:700;transition:.18s}.option input:checked+span{background:#f9dce3;border-color:var(--wine);color:var(--wine);box-shadow:inset 0 0 0 1px var(--wine)}.option input:focus-visible+span{outline:3px solid var(--gold);outline-offset:2px}.confirm{width:100%;background:var(--wine);color:white;box-shadow:0 6px 0 var(--wine-dark)}.success .heart{font-size:4.6rem;line-height:1;animation:beat .8s ease-in-out infinite alternate}.success p{line-height:1.8;margin:0}.summary{margin-top:18px;padding:14px;border-radius:14px;background:#fae9ed;color:var(--wine);font-weight:800}
     .confetti{position:fixed;top:-20px;width:10px;height:16px;z-index:10;animation:fall 2.8s linear forwards}@keyframes beat{to{transform:scale(1.12)}}@keyframes fall{to{transform:translateY(110vh) rotate(720deg)}}
-    @media(max-width:760px){body{overflow:auto}.scene{min-height:100svh;background-size:auto 100%;background-position:center top;padding:44vh 18px 26px}.panel{width:min(100%,430px);padding:25px 20px 22px;border-radius:23px}.copy{font-size:.95rem}.actions{height:118px;gap:10px}h1{font-size:2.15rem}}
-    @media(max-width:430px){.scene{background-size:auto 72%;background-position:center top;padding-top:46vh}.panel{background:rgba(255,253,248,.94)}button{padding:13px 18px}#yes{min-width:136px}#no{min-width:96px}}@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.01ms!important;transition-duration:.01ms!important}}
+    @media(max-width:760px){.scene{min-height:100svh;justify-content:flex-start;padding:14px 12px 28px}.characters{width:100%;max-height:none;border-radius:20px}.panel{width:calc(100% - 20px);margin-top:-18px;padding:25px 20px 22px;border-radius:23px}.copy{font-size:.95rem}.actions{height:118px;gap:10px}h1{font-size:2.15rem}}
+    @media(max-width:430px){.panel{background:rgba(255,253,248,.98)}button{padding:13px 18px}#yes{min-width:136px}#no{min-width:96px}}@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.01ms!important;transition-duration:.01ms!important}}
   </style>
 </head>
 <body>
   <main class="scene">
+    <img class="characters" src="xiaoni-xiaochuan-separated.png" alt="小妮和小川的卡通形象">
     <section class="panel" aria-labelledby="title">
       <div id="invite">
         <div class="date">9 月 27 日 · 晚餐</div>
         <h1 id="title">小川，愿意和我赴约吗？</h1>
-        <p class="copy">想和你一起吃顿晚餐，<br>认真地为你庆祝一次生日。</p>
+        <p class="copy">想请你一起吃饭，<br>认真地为你庆祝一次生日。</p>
         <p class="question">你的答案是——</p>
         <div class="actions" id="actions"><button id="yes" type="button">愿意 ♥</button><button id="no" type="button" aria-describedby="plea">不愿意</button></div>
         <p class="plea" id="plea" aria-live="polite">求求你去吧 🥺</p>
